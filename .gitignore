@@ -12,7 +12,6 @@ hs_err_pid*
 
 # generic
 out
-IDLogger
 .idea
 *~
 *.lock
