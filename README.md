@@ -51,10 +51,10 @@ des variantes. Ces classes peuvent être étendues facilement pour personnaliser
 <H3>Description sommaire</H3>
 
 <p>Dans ce jeu, on utilise 3 dés. Chaque dé a 6 faces avec un chiffre (entre 1 et 6) sur chaque face : </p>
-<p><img src="description1.PNG" border="0"><img src="description1.PNG" border="0"><img src="description1.PNG" border="0"></p>
+<p><img src="/images/description1.PNG" border="0"><img src="/images/description1.PNG" border="0"><img src="/images/description1.PNG" border="0"></p>
 
 <p>Une partie de jeu est jouée en 6 tours. À chaque tour, les joueurs roulent les trois dés. Un joueur essaie de faire rouler le même chiffre que
-le numéro du tour, par exemple (<img src="des_identiques.PNG" border="0"> dans le troisième tour).
+le numéro du tour, par exemple (<img src="/images/des_identiques.PNG" border="0"> dans le troisième tour).
 Lorsque les trois dés roulés affichent le même numéro et que ce numéro est le même que le numéro du tour, on dit que le joueur a un Bnco (21 points).
 Sinon, un point est attribué pour chaque chiffre qui correspond au numéro du tour.</p>
 <p>Durant un tour, un joueur passe la main au joueur suivant si le joueur obtient un résultat de 0 ou s'il obtient un Bunco.</p>
@@ -65,15 +65,15 @@ Sinon, un point est attribué pour chaque chiffre qui correspond au numéro du t
 <p>À chaque tour, les joueurs marquent des points lorsque le chiffre figurant sur les dés est le même numéro que le tour. Un point est attribué pour
 chaque numéro correspondant.</p>
 
-<p>Par exemple, dans le tour 1, l'objectif est de faire rouler <img src="bunco_tour1.PNG" border="0">;
-si le joueur obtient <img src="points_tour1.PNG" border="0">, le joueur reçoit deux points et il roule à nouveau les dés.</p>
+<p>Par exemple, dans le tour 1, l'objectif est de faire rouler <img src="/images/bunco_tour1.PNG" border="0">;
+si le joueur obtient <img src="/images/points_tour1.PNG" border="0">, le joueur reçoit deux points et il roule à nouveau les dés.</p>
 
-<p>Dans le tour 2, l'objectif est de faire rouler (<img src="bunco_tour2.PNG" border="0"> trois groupes de deux);
-si le joueur obtient <img src="points_tour2.PNG" border="0">, le score du joueur augmente d'un point et il roule à nouveau les dés, et ainsi de suite.</p>
+<p>Dans le tour 2, l'objectif est de faire rouler (<img src="/images/bunco_tour2.PNG" border="0"> trois groupes de deux);
+si le joueur obtient <img src="/images/points_tour2.PNG" border="0">, le score du joueur augmente d'un point et il roule à nouveau les dés, et ainsi de suite.</p>
 
-<p>Si un joueur obtient trois fois le même chiffre et ce chiffre est identique à celui du tour en cours (par exemple: <img src="bunco_tour4.PNG" border="0">
+<p>Si un joueur obtient trois fois le même chiffre et ce chiffre est identique à celui du tour en cours (par exemple: <img src="/images/bunco_tour4.PNG" border="0">
 au quatrième tour), c'est un Bunco! Un Bunco vaut 21 points. Si par contre un joueur obtient trois chiffres identiques mais différents du numéro
-du tour (par exemple: <img src="des_identiques_2.PNG" border="0"> au quatrième tour), le joueur reçoit 5 points.</p>
+du tour (par exemple: <img src="/images/des_identiques_2.PNG" border="0"> au quatrième tour), le joueur reçoit 5 points.</p>
 
 <p>Lorsque le joueur obtient un Bunco (21 points), il passe la main au suivant.</p>
 <ul>
@@ -90,15 +90,15 @@ Il roule encore les dés et il obtient un Bunco (21 points). Le joueur accumule 
 
 <TABLE>
   <TR>
-    <td>Il obtient <img src="joueur1_lancer1.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur1_lancer1.PNG" border="0"></td>
     <td>Il gagne 2 points et il continue de rouler les dés.</td>
   </tr>
   <TR>
-    <td>Il obtient <img src="joueur1_lancer2.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur1_lancer2.PNG" border="0"></td>
     <td>Il gagne un autre point et il continue de rouler les dés.</td>
   </tr>
     <TR>
-    <td>Il obtient <img src="joueur1_lancer3.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur1_lancer3.PNG" border="0"></td>
     <td>Aucun point n'est attribué au joueur et les dés sont passés au joueur suivant.</td>
   </tr>
 </TABLE>
@@ -107,15 +107,15 @@ On marque un total de 3 points pour le joueur #1 dans ce tour.</p>
 <p>Le joueur #2 roule les dés:
 <TABLE>
   <TR>
-    <td>Il obtient <img src="joueur2_lancer1.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur2_lancer1.PNG" border="0"></td>
     <td>Il gagne un point et il continue de rouler les dés.</td>
   </tr>
   <TR>
-    <td>Il obtient <img src="joueur2_lancer2.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur2_lancer2.PNG" border="0"></td>
     <td>Il gagne un autre point et il continue de rouler les dés.</td>
   </tr>
     <TR>
-    <td>Il obtient <img src="joueur2_lancer3.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur2_lancer3.PNG" border="0"></td>
     <td>Aucun point n'est attribué au joueur et les dés sont passés au joueur suivant.</td>
   </tr>
 </TABLE>
@@ -124,11 +124,11 @@ On marque un total de 2 points pour le joueur #2 dans ce tour.</p>
 <p>Le joueur #3 roule les dés:
 <TABLE>
   <TR>
-    <td>Il obtient <img src="joueur3_lancer1.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur3_lancer1.PNG" border="0"></td>
     <td>Trois fois le même chiffre est obtenu (mais ce n'est pas un BUNCO). Le joueur obtient 5 points et il continue de rouler les dés.</td>
   </tr>
   <TR>
-    <td>Il obtient <img src="joueur3_lancer2.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur3_lancer2.PNG" border="0"></td>
     <td>Aucun point n'est attribué au joueur et les dés sont passés au joueur suivant.</td>
   </tr>
 </TABLE>
@@ -137,7 +137,7 @@ On marque un total de 5 points pour le joueur #3 dans ce tour.</p>
 <p>Le joueur #4 roule les dés:
 <TABLE>
   <TR>
-    <td>Il obtient <img src="joueur4_lancer1.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur4_lancer1.PNG" border="0"></td>
     <td>C'est un Bunco! Le joueur obtient 21 points et les dés sont passés au joueur suivant.</td>
   </tr>
 </TABLE>
@@ -146,7 +146,7 @@ On marque un total de 21 points pour le joueur #4 dans ce tour.</p>
 <p>Le joueur #5 lance les dés:
 <TABLE>
   <TR>
-    <td>Il obtient <img src="joueur5_lancer1.PNG" border="0"></td>
+    <td>Il obtient <img src="/images/joueur5_lancer1.PNG" border="0"></td>
     <td>Aucun point n'est attribué au joueur et les dés sont passés au joueur suivant.</td>
   </tr>
 </TABLE>
@@ -161,7 +161,7 @@ doivent modéliser correctement les dés et les joueurs. Les classes De et Joueu
 <p>Il doit y avoir une classe Jeu qui sera initialisée lorsqu'on commence une partie de jeu. Cette classe doit être indépendante de
 toute variante de jeu de dés. Le diagramme de classes suivant peut vous servir comme point de départ :</p>
 
-<p><img src="conception.PNG" border="0"></p>
+<p><img src="/images/conception.PNG" border="0"></p>
 De plus, votre conception doit respecter les contraintes suivantes :
 <ul>
 <!--<li>La classe qui s'occupe d'initialiser le jeu et de jouer une partie doit être différente de la classe Jeu.</li>-->
