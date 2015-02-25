@@ -1,12 +1,4 @@
 <html lang="fr-ca">
-<HEAD>
-  <TITLE>LOG121 - Conception orient&eacute;e objet</TITLE>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <meta name = "viewport" content = "width = 320">
-  <link rel="stylesheet" href="core.css" media="screen"/>
-  <link rel="stylesheet" href="handheld.css"
-    media="handheld, only screen and (max-device-width:480px)"/>
-</HEAD>
 
 <h1>Cadriciel pour un jeu de dés</h1>
 
