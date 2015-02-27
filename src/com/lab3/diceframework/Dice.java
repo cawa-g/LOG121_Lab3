@@ -1,4 +1,4 @@
-package com.lab3;
+package com.lab3.diceframework;
 
 import java.util.Random;
 
@@ -29,18 +29,25 @@ public class Dice implements Comparable<Dice>{
      */
     @Override
     public int compareTo(Dice o) {
-        return ((Integer)o.getActualValue()).compareTo(getActualValue());
+        return ((Integer)o.getValue()).compareTo(getValue());
     }
 
     /**
      * Roule le dé
-     * @return La valeur de la face du dé
      */
     public void roll(){
-        actualValue = random.nextInt(numberOfFaces + 1);
+        /*
+        * todo : On ne retourne pas la valeur du dé parce qu'ainsi on peut créé un état pour le dé. (bon ou pas? à voir j'imagine)
+         */
+
+        actualValue = random.nextInt(numberOfFaces) + 1;
     }
 
-    public int getActualValue(){
+    /**
+     *
+     * @return La valeur actuelle du dé.
+     */
+    public Integer getValue(){
         return actualValue;
     }
 }
