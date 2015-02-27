@@ -2,24 +2,36 @@ package com.lab3.utils;
 
 import java.util.Iterator;
 
-//todo : Oops, ça doit être un array au lieu de nodes
-
 /**
  * Collection exposant les méthodes de base
  * @param <T> Élément de la liste
  */
 public class SimpleCollection<T> implements Iterable<T>{
-    private Node head;
+    private T[] elements;
+    private int endIndex = 0;
+    private final int initialSize;
+
+    public SimpleCollection(){
+        //50 est complètement arbitraire, semble être adéquat pour une collection.
+        initialSize = 50;
+        elements = (T[])new Object[initialSize];
+    }
 
     /**
      * Ajoute à la collection
      * @param value Valeur à ajouter
      */
     public void add(T value){
-        Node<T> node = new Node(value);
-        node.setNext(head);
+        elements[endIndex] = value;
+        endIndex++;
 
-        head = node;
+        // todo : overkill?
+        // Si on arrive à la fin de l'array, il faut en augmenter la taille pour continuer de travailler.
+        if(endIndex == elements.length - 1){
+            T[] newArray = (T[])new Object[elements.length + initialSize];
+            System.arraycopy(elements,0,newArray,0,elements.length);
+            elements = newArray;
+        }
     }
 
     /**
@@ -27,13 +39,26 @@ public class SimpleCollection<T> implements Iterable<T>{
      * @param value Valeur à retirer
      */
     public void remove(T value){
-        Iterator<T> iterator = new SimpleLinkedListIterator(this);
-        T nodeValue = null;
-        while(iterator.hasNext() && nodeValue != value){
-            nodeValue = iterator.next();
+
+        boolean foundValue = false;
+        for(int removeIndex = 0; removeIndex < size(); removeIndex++){
+            if(!foundValue){
+                //Vérifier si on a trouver la première instance de la valeur à retirer
+                foundValue = elements[removeIndex].equals(value);
+            } else {
+                //On l'a trouvé, maintenant on décale les valeurs pour retirer la valeur recherchée.
+                elements[removeIndex] = elements[removeIndex + 1];
+            }
         }
 
-        iterator.remove();
+        elements[size()] = null;
+        endIndex--;
+
+        //todo : est-ce qu'on devrait diminuer l'array de taille si on arrive à un certain point?
+    }
+
+    public int size(){
+        return endIndex;
     }
 
     /**
@@ -42,49 +67,43 @@ public class SimpleCollection<T> implements Iterable<T>{
      */
     @Override
     public Iterator<T> iterator() {
-        return new SimpleLinkedListIterator<>(this);
+        return new SimpleCollectionIterator<>(this);
     }
 
-    private class Node<T> {
-        private T value;
-        private Node<T> next;
+    /**
+     * Permet l'itération dans une SimpleCollection
+     * @param <T> Typ d'élément de la liste
+     */
+    private class SimpleCollectionIterator<T> implements Iterator<T>{
 
-        Node(T value) {
-            this.value = value;
+        private int currentIndex = 0;
+        private SimpleCollection<T> simpleCollection;
+
+        /**
+         * Crée une instace de SimpleCollectionIterator
+         * @param simpleCollection Collection à itérer
+         */
+        SimpleCollectionIterator(SimpleCollection<T> simpleCollection){
+            this.simpleCollection = simpleCollection;
         }
 
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
-    }
-
-    private class SimpleLinkedListIterator<T> implements Iterator<T>{
-
-        private Node<T> previous;
-        private Node<T> current;
-
-        SimpleLinkedListIterator(SimpleCollection<T> linkedList){
-            this.current = linkedList.head;
-            this.previous = null;
-        }
-
+        /**
+         *
+         * @return true si l'itérateur a un prochain élément
+         */
         @Override
         public boolean hasNext() {
-            return current.next != null;
+            return currentIndex < simpleCollection.size();
         }
 
+        /**
+         *
+         * @return Prochaine valeur de l'itérateur
+         */
         @Override
         public T next() {
-            previous = current;
-            current = current.next;
-            return current.value;
-        }
-
-        @Override
-        public void remove(){
-            Node<T> next = current.next;
-            previous.next = next;
-            current = previous;
+            currentIndex++;
+            return simpleCollection.elements[currentIndex];
         }
     }
 }
