@@ -29,10 +29,7 @@ public class Game {
         }
 
         for(Player player : players){
-            Iterator<Dice> iteratorDice = player.rollDices();
-            int roundScore = scoreCalculatorStrategy.calculateScore(iteratorDice,currentRound);
-
-            player.incrementScore(roundScore);
+            scoreCalculatorStrategy.calculateScore(player, currentRound);
         }
         currentRound++;
     }

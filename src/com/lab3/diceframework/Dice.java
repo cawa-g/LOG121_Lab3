@@ -29,7 +29,7 @@ public class Dice implements Comparable<Dice>{
      */
     @Override
     public int compareTo(Dice o) {
-        return ((Integer)o.getValue()).compareTo(getValue());
+        return o.getValue().compareTo(getValue());
     }
 
     /**

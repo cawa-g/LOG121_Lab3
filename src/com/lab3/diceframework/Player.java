@@ -42,11 +42,11 @@ public class Player implements Comparable<Player> {
      * Le joueur roule tous ses dés
      * @return Les dés avec leurs valeurs actuelles
      */
-    public Iterator<Dice> rollDices(){
+    public Iterable<Dice> rollDices(){
         //todo : C'est triste retourner Iterator parce que les dés ne sont pas clônés, et que Iterator implémente "remove". Ça scrap l'encapsulation.
 
         dices.forEach(d -> d.roll());
-        return dices.iterator();
+        return dices;
     }
 
     /**

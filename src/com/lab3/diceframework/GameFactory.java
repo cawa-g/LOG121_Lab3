@@ -10,23 +10,30 @@ public abstract class GameFactory {
       * On checkera ça.
      */
     private int numberOfRounds;
+    private int numberOfPlayers;
     private ScoreCalculatorStrategy scoreCalculatorStrategy;
 
-    protected GameFactory(int numberOfRounds, ScoreCalculatorStrategy scoreCalculatorStrategy){
+    protected GameFactory(int numberOfRounds, int numberOfPlayers, ScoreCalculatorStrategy scoreCalculatorStrategy){
 
         this.numberOfRounds = numberOfRounds;
+        this.numberOfPlayers = numberOfPlayers;
         this.scoreCalculatorStrategy = scoreCalculatorStrategy;
     }
 
-    protected abstract Players createPlayers();
+    protected abstract Dices createDicesForPlayer();
+    protected abstract Player createPlayer(Dices dices);
 
     /**
-     * VOMIS! (Non ok, faut changer ça)
+     * VOMIS! (Non ok, faut changer ça) (C'est peut-être un peu mieux maintenant..)
      * @return
      */
     public Game create(){
-        Players players = createPlayers();
+        Players players = new Players();
 
+        for (int index = 0; index < numberOfPlayers; index++) {
+            Dices playersDices = createDicesForPlayer();
+            players.add(createPlayer(playersDices));
+        }
 
         return new Game(players,numberOfRounds,scoreCalculatorStrategy);
     }
