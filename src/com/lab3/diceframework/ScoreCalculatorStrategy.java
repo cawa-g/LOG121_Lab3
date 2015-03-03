@@ -1,7 +1,5 @@
 package com.lab3.diceframework;
 
-import java.util.Iterator;
-
 /**
  * Calcul un score en points en fonction de dés et du tour actuel
  */
