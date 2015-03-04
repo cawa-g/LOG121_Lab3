@@ -37,7 +37,7 @@ public class StrategieJeuBunco implements StrategieJeu {
 
         } while(occurenceDuTour != 0 && !estBunco);
 
-        return score;
+        //return score;
     }
 
     @Override
