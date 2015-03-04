@@ -5,19 +5,19 @@ import java.util.Random;
 /**
  * Un dé à jouer
  */
-public class Dice implements Comparable<Dice>{
+public class De implements Comparable<De>{
 
-    private final static Random random = new Random();
-    private int numberOfFaces;
-    private Integer actualValue;
+    private final static Random generateurAleatoire = new Random();
+    private int nombreDeFaces;
+    private Integer valeurActuelleDuDe;
 
     /**
      * Initialise un dé à jouer avec un certain nombre de faces
-     * @param numberOfFaces Nombre de faces du dé
+     * @param nombreDeFaces Nombre de faces du dé
      */
-    public Dice(int numberOfFaces) {
-        this.numberOfFaces = numberOfFaces;
-        this.actualValue = null;
+    public De(int nombreDeFaces) {
+        this.nombreDeFaces = nombreDeFaces;
+        this.valeurActuelleDuDe = null;
     }
 
     /**
@@ -28,26 +28,26 @@ public class Dice implements Comparable<Dice>{
      *          1 si le dé "o" a plus de faces
      */
     @Override
-    public int compareTo(Dice o) {
-        return o.getValue().compareTo(getValue());
+    public int compareTo(De o) {
+        return o.obtenirValeur().compareTo(obtenirValeur());
     }
 
     /**
      * Roule le dé
      */
-    public void roll(){
+    public void rouler(){
         /*
         * todo : On ne retourne pas la valeur du dé parce qu'ainsi on peut créé un état pour le dé. (bon ou pas? à voir j'imagine)
          */
 
-        actualValue = random.nextInt(numberOfFaces) + 1;
+        valeurActuelleDuDe = generateurAleatoire.nextInt(nombreDeFaces) + 1;
     }
 
     /**
      *
      * @return La valeur actuelle du dé.
      */
-    public Integer getValue(){
-        return actualValue;
+    public Integer obtenirValeur(){
+        return valeurActuelleDuDe;
     }
 }

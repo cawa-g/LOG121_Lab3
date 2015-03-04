@@ -1,21 +1,19 @@
 package com.lab3.diceframework;
 
-import java.util.Iterator;
-
 /**
  * Un joueur de dés
  */
-public class Player implements Comparable<Player> {
+public class Joueur implements Comparable<Joueur> {
 
     private int score;
-    private Dices dices;
+    private Des des;
 
     /**
      * Crée une instance de joueur
-     * @param dices Les dés du joueur
+     * @param des Les dés du joueur
      */
-    public Player(Dices dices){
-        this.dices = dices;
+    public Joueur(Des des){
+        this.des = des;
     }
 
     /**
@@ -26,7 +24,7 @@ public class Player implements Comparable<Player> {
      *          1 si le joueur "o" a un score plus faible
      */
     @Override
-    public int compareTo(Player o) {
+    public int compareTo(Joueur o) {
         return 0;
     }
 
@@ -34,7 +32,7 @@ public class Player implements Comparable<Player> {
      *
      * @return Le score d'un joueur
      */
-    public int getScore(){
+    public int obtenirScore(){
         return this.score;
     }
 
@@ -42,25 +40,25 @@ public class Player implements Comparable<Player> {
      * Le joueur roule tous ses dés
      * @return Les dés avec leurs valeurs actuelles
      */
-    public Iterable<Dice> rollDices(){
-        //todo : C'est triste retourner Iterator parce que les dés ne sont pas clônés, et que Iterator implémente "remove". Ça scrap l'encapsulation.
+    public Iterable<De> roulerDes(){
+        //todo : C'est triste retourner Iterator parce que les dés ne sont pas clônés, et que Iterator implémente "retirer". Ça scrap l'encapsulation.
 
-        dices.forEach(d -> d.roll());
-        return dices;
+        des.forEach(d -> d.rouler());
+        return des;
     }
 
     /**
      * Incrémente le score du joueur de par un certain nombres de points
      * @param points Points à ajouter au score du joueur
      */
-    public void incrementScore(int points){
+    public void incrementerScore(int points){
         this.score += points;
     }
 
     /**
      * Ramène le score d'un joueur à 0.
      */
-    public void resetScore(){
+    public void reinitialiserScore(){
         //todo : Je mettrais ça dans un framework, mais on s'en sert pas ici.. or will we?? Da dammm
         score = 0;
     }
