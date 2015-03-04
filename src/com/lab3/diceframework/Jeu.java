@@ -31,11 +31,11 @@ public class Jeu {
     }
 
     public void calculerScoreTour() {
-        //todo: transférer le "jouerUnTour" et implémenter!
+        strategieJeu.calculerScoreTour(this);
     }
 
     public void calculerLeVainqueur(){
-        //todo: implémenter
+        strategieJeu.calculerLeVainqueur(this);
     }
 
     /**

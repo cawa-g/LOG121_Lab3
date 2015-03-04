@@ -10,8 +10,10 @@ import com.lab3.diceframework.Joueur;
  */
 public class FabriqueBunco extends FabriqueDeJeu {
 
+    private static final int NOMBRE_DE_DES = 6;
+
     public FabriqueBunco(int nombreDeJoueurs) {
-        super(6, nombreDeJoueurs, new StrategieJeuBunco());
+        super(NOMBRE_DE_DES, nombreDeJoueurs, new StrategieJeuBunco());
     }
 
     /**
