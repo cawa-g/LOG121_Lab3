@@ -16,30 +16,34 @@ public class De implements Comparable<De>{
      * @param nombreDeFaces Nombre de faces du dé
      */
     public De(int nombreDeFaces) {
+        if(nombreDeFaces < 1){
+            throw new IllegalArgumentException("Le nombre de face ne peut pas être inférieure à 1");
+        }
+
         this.nombreDeFaces = nombreDeFaces;
         this.valeurActuelleDuDe = null;
     }
 
     /**
-     * Compare un dé avec un autre
-     * @param o Dé à comparer
-     * @return  -1 si le dé "o" a moins de faces
-     *          0 si le dé "o" a le même nombre de faces
-     *          1 si le dé "o" a plus de faces
-     */
+    * Compare un dé avec un autre
+    * @param o Dé à comparer
+    * @return  -1 si le dé "o" a moins de faces
+    *          0 si le dé "o" a le même nombre de faces
+    *          1 si le dé "o" a plus de faces
+    */
     @Override
     public int compareTo(De o) {
-        return o.obtenirValeur().compareTo(obtenirValeur());
+        if(o == null){
+            throw new IllegalArgumentException("Le dé 0 est null");
+        }
+
+        return obtenirValeur().compareTo(o.obtenirValeur());
     }
 
     /**
      * Roule le dé
      */
     public void rouler(){
-        /*
-        * todo : On ne retourne pas la valeur du dé parce qu'ainsi on peut créé un état pour le dé. (bon ou pas? à voir j'imagine)
-         */
-
         valeurActuelleDuDe = generateurAleatoire.nextInt(nombreDeFaces) + 1;
     }
 
@@ -48,6 +52,14 @@ public class De implements Comparable<De>{
      * @return La valeur actuelle du dé.
      */
     public Integer obtenirValeur(){
+        if(valeurActuelleDuDe == null){
+            throw new IllegalStateException("Le dé n'a jamais été lancé.");
+        }
+
         return valeurActuelleDuDe;
+    }
+
+    public Integer obtenirNombreDeFaces(){
+        return nombreDeFaces;
     }
 }
