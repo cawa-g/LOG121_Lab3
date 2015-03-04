@@ -27,11 +27,19 @@ public class Jeu {
         }
 
         for(Joueur joueur : joueurs){
-            strategieJeu.calculerScoreTour(joueur, tourActuel);
+            //todo : wut. voir plus bas?
+            //strategieJeu.calculerScoreTour(joueur);
         }
         tourActuel++;
     }
 
+    public void calculerScoreTour() {
+        //todo: transférer le "jouerUnTour" et implémenter!
+    }
+
+    public void calculerLeVainqueur(){
+        //todo: implémenter
+    }
     /**
      *
      * @return true si la ronde finale a été jouée
