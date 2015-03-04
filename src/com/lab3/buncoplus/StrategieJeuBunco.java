@@ -50,7 +50,7 @@ public class StrategieJeuBunco implements StrategieJeu {
     private int obtenirOccurencesDuTourDansDes(Iterable<De> des, int tour){
         int occurenceDuTour = 0;
         for (De de : des){
-            if(de.equals(tour)){
+            if(de.obtenirValeur() == tour){
                 occurenceDuTour++;
             }
         }
