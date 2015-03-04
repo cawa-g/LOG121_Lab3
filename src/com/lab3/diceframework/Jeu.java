@@ -48,7 +48,7 @@ public class Jeu {
         Joueur meilleurJoueur = null;
 
         for(Joueur joueur : joueurs) {
-            if(meilleurJoueur != null && joueur.obtenirScore() > meilleurJoueur.obtenirScore()){
+            if (meilleurJoueur == null || joueur.obtenirScore() > meilleurJoueur.obtenirScore()){
                 meilleurJoueur = joueur;
             }
         }
