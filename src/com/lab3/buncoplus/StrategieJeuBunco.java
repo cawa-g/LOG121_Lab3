@@ -11,7 +11,7 @@ import com.lab3.diceframework.StrategieJeu;
 public class StrategieJeuBunco implements StrategieJeu {
 
     @Override
-    public int calculerScoreTour(Jeu jeu) {
+    public void calculerScoreTour(Jeu jeu) {
         int score = 0;
         int occurenceDuTour = 0;
 

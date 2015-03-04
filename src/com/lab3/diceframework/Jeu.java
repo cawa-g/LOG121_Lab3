@@ -40,6 +40,7 @@ public class Jeu {
     public void calculerLeVainqueur(){
         //todo: implémenter
     }
+
     /**
      *
      * @return true si la ronde finale a été jouée

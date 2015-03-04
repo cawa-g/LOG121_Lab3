@@ -10,7 +10,7 @@ public interface StrategieJeu {
      * @param jeu Le joueur du tour
      * @return Le score en points.
      */
-    int calculerScoreTour(Jeu jeu);
+    void calculerScoreTour(Jeu jeu);
 
     Joueur calculerLeVainqueur(Jeu jeu);
 }
