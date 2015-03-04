@@ -1,8 +1,5 @@
 package com.lab3.diceframework;
 
-/**
- * Created by francistoupin on 15-02-25.
- */
 public class Jeu {
     private final Joueurs joueurs;
     private final int nombreDeTours;

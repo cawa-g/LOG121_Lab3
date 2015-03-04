@@ -5,9 +5,6 @@ import com.lab3.diceframework.Jeu;
 import com.lab3.diceframework.Joueur;
 import com.lab3.diceframework.StrategieJeu;
 
-/**
- * Created by francistoupin on 15-03-02.
- */
 public class StrategieJeuBunco implements StrategieJeu {
 
     @Override

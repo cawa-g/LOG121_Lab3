@@ -1,8 +1,5 @@
 package com.lab3.diceframework;
 
-/**
- * Created by francistoupin on 15-02-26.
- */
 public abstract class FabriqueDeJeu {
 
     /*
