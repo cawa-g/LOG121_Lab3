@@ -1,6 +1,7 @@
 package com.lab3.buncoplus;
 
 import com.lab3.diceframework.De;
+import com.lab3.diceframework.Jeu;
 import com.lab3.diceframework.Joueur;
 import com.lab3.diceframework.StrategieJeu;
 
@@ -10,31 +11,40 @@ import com.lab3.diceframework.StrategieJeu;
 public class StrategieJeuBunco implements StrategieJeu {
 
     @Override
-    public int calculerScoreTour(Joueur joueur, final int tour) {
+    public int calculerScoreTour(Jeu jeu) {
         int score = 0;
         int occurenceDuTour = 0;
 
         boolean estBunco = false;
 
         do {
-            Iterable<De> des = joueur.roulerDes();
+            //todo : Arranger!
 
-            occurenceDuTour = obtenirOccurencesDuTourDansDes(des, tour);
-            De de1 = des.iterator().next();
-
-            //todo : revoir le calcul avec les règles.
-            if(occurenceDuTour != 3){
-                score += occurenceDuTour;
-            } else if(de1.obtenirValeur() == tour) {
-                score += 21;
-                estBunco = true;
-            } else{
-                score += 5;
-            }
+//            Iterable<De> des = jeu.roulerDes();
+//
+//            occurenceDuTour = obtenirOccurencesDuTourDansDes(des, tour);
+//            De de1 = des.iterator().next();
+//
+//            //todo : revoir le calcul avec les règles.
+//            if(occurenceDuTour != 3){
+//                score += occurenceDuTour;
+//            } else if(de1.obtenirValeur() == tour) {
+//                score += 21;
+//                estBunco = true;
+//            } else{
+//                score += 5;
+//            }
 
         } while(occurenceDuTour != 0 && !estBunco);
 
         return score;
+    }
+
+    @Override
+    public Joueur calculerLeVainqueur(Jeu jeu) {
+
+        //todo : implémenter
+        return null;
     }
 
     private int obtenirOccurencesDuTourDansDes(Iterable<De> des, int tour){
