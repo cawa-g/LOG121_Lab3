@@ -37,7 +37,7 @@ public class Jeu {
         //todo: transférer le "jouerUnTour" et implémenter!
     }
 
-    public void calculerLeVainceur(){
+    public void calculerLeVainqueur(){
         //todo: implémenter
     }
     /**
