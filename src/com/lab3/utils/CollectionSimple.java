@@ -67,7 +67,7 @@ public class CollectionSimple<T> implements Iterable<T>{
      */
     @Override
     public Iterator<T> iterator() {
-        return new IterateurCollectionSimple<>(this);
+        return new IterateurCollectionSimple<T>();
     }
 
     /**
@@ -77,15 +77,6 @@ public class CollectionSimple<T> implements Iterable<T>{
     private class IterateurCollectionSimple<T> implements Iterator<T>{
 
         private int indexCourant = 0;
-        private CollectionSimple<T> collectionSimple;
-
-        /**
-         * Crée une instace de SimpleCollectionIterator
-         * @param collectionSimple Collection à itérer
-         */
-        IterateurCollectionSimple(CollectionSimple<T> collectionSimple){
-            this.collectionSimple = collectionSimple;
-        }
 
         /**
          *
@@ -93,7 +84,7 @@ public class CollectionSimple<T> implements Iterable<T>{
          */
         @Override
         public boolean hasNext() {
-            return indexCourant < collectionSimple.taille();
+            return indexCourant < taille();
         }
 
         /**
@@ -103,7 +94,7 @@ public class CollectionSimple<T> implements Iterable<T>{
         @Override
         public T next() {
             indexCourant++;
-            return collectionSimple.elements[indexCourant];
+            return (T)elements[indexCourant];
         }
     }
 }

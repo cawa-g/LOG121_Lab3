@@ -25,7 +25,7 @@ public class Joueur implements Comparable<Joueur> {
      */
     @Override
     public int compareTo(Joueur o) {
-        return 0;
+        return ((Integer)this.score).compareTo(o.score);
     }
 
     /**
@@ -43,7 +43,7 @@ public class Joueur implements Comparable<Joueur> {
     public Iterable<De> roulerDes(){
         //todo : C'est triste retourner Iterator parce que les dés ne sont pas clônés, et que Iterator implémente "retirer". Ça scrap l'encapsulation.
 
-        des.forEach(d -> d.rouler());
+        des.forEach(De::rouler);
         return des;
     }
 

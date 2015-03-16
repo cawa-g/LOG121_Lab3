@@ -1,8 +1,5 @@
 package com.lab3.diceframework;
 
-/**
- * Created by francistoupin on 15-02-25.
- */
 public class Jeu {
     private final Joueurs joueurs;
     private final int nombreDeTours;
@@ -34,11 +31,11 @@ public class Jeu {
     }
 
     public void calculerScoreTour() {
-        //todo: transférer le "jouerUnTour" et implémenter!
+        strategieJeu.calculerScoreTour(this);
     }
 
     public void calculerLeVainqueur(){
-        //todo: implémenter
+        strategieJeu.calculerLeVainqueur(this);
     }
 
     /**

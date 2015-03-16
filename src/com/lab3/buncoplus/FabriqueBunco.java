@@ -1,25 +1,20 @@
 package com.lab3.buncoplus;
 
-import com.lab3.diceframework.De;
-import com.lab3.diceframework.Des;
-import com.lab3.diceframework.FabriqueDeJeu;
-import com.lab3.diceframework.Joueur;
+import com.lab3.diceframework.*;
 
 /**
  * Crée une instance de jeu de Bunco
  */
 public class FabriqueBunco extends FabriqueDeJeu {
 
-    public FabriqueBunco(int nombreDeJoueurs) {
-        super(6, nombreDeJoueurs, new StrategieJeuBunco());
+    private static final int NOMBRE_DE_DES = 6;
+
+    public FabriqueBunco() {
+        super();
     }
 
-    /**
-     * Crée les dés pour un joueur
-     * @return Les dés d'un joueur
-     */
     @Override
-    protected Des creerDesPourJoueurs() {
+    protected Des creerDes() {
         Des des = new Des();
 
         for (int index = 0; index < 3; index++) {
@@ -29,13 +24,14 @@ public class FabriqueBunco extends FabriqueDeJeu {
         return des;
     }
 
-    /**
-     * Crée un joueur
-     * @param des Les dés du joueur
-     * @return Un nouveau joueur
-     */
     @Override
-    protected Joueur creerJoueur(Des des) {
-        return new Joueur(des);
+    protected Joueurs creerJoueurs(int nombreDeJoueurs) {
+        Joueurs j = new Joueurs();
+
+        for (int index = 0; index < nombreDeJoueurs; index++) {
+            Des d = creerDes();
+            j.ajouter(new Joueur(d));
+        }
+        return null;
     }
 }
