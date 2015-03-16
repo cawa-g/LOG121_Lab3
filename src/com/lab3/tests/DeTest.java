@@ -13,7 +13,6 @@ public class DeTest {
 
     @Test
     public void constructeur_nombreDeFacesZero_IllegalArgument(){
-
         CustomAsserts.LanceException(() -> new De(0), IllegalArgumentException.class);
     }
 
@@ -103,7 +102,7 @@ public class DeTest {
 
         de.rouler();
 
-        Assert.assertTrue(de.obtenirValeur() <= 4 && de.obtenirValeur() > 1);
+        Assert.assertTrue(de.obtenirValeur() <= 4 && de.obtenirValeur() >= 1);
     }
 
     @Test

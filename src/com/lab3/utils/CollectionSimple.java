@@ -93,8 +93,10 @@ public class CollectionSimple<T> implements Iterable<T>{
          */
         @Override
         public T next() {
+            T element = (T)elements[indexCourant];
             indexCourant++;
-            return (T)elements[indexCourant];
+
+            return element;
         }
     }
 }
