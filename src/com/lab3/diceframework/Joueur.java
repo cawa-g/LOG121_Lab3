@@ -54,12 +54,4 @@ public class Joueur implements Comparable<Joueur> {
     public void incrementerScore(int points){
         this.score += points;
     }
-
-    /**
-     * Ramène le score d'un joueur à 0.
-     */
-    public void reinitialiserScore(){
-        //todo : Je mettrais ça dans un framework, mais on s'en sert pas ici.. or will we?? Da dammm
-        score = 0;
-    }
 }

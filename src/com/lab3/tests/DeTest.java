@@ -1,29 +1,20 @@
+
 import com.lab3.diceframework.De;
-import com.lab3.utils.TestUtils;
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class DeTest {
 
-    /**
-     * Commentaire useless pour réussir à push..
-     */
-
     @Test
     public void constructeur_nombreDeFacesNegatives_IllegalArgumentException(){
 
-        boolean exceptionEstLancee = TestUtils.LanceException(() -> new De(-1), IllegalArgumentException.class);
-
-        Assert.assertTrue("L'exception IllegalArgument n'a pas été lancée", exceptionEstLancee);
+        CustomAsserts.LanceException(() -> new De(-1), IllegalArgumentException.class);
     }
 
     @Test
     public void constructeur_nombreDeFacesZero_IllegalArgument(){
 
-        boolean exceptionEstLancee = TestUtils.LanceException(() -> new De(0),IllegalArgumentException.class);
-
-        Assert.assertTrue("L'exception IllegalArgument n'a pas été lancée", exceptionEstLancee);
+        CustomAsserts.LanceException(() -> new De(0), IllegalArgumentException.class);
     }
 
     @Test
@@ -96,18 +87,14 @@ public class DeTest {
         De de = new De(2);
         De de2 = null;
 
-        boolean exceptionEstLancee = TestUtils.LanceException(() -> de.compareTo(de2), IllegalArgumentException.class);
-
-        Assert.assertTrue("L'exception IllegalArgumentException n'a pas été lancée", exceptionEstLancee);
+        CustomAsserts.LanceException(() -> de.compareTo(de2), IllegalArgumentException.class);
     }
 
     @Test
     public void obtenirValeur_DeJamaisLancee_IllegalStateException() throws Exception {
         De de = new De(4);
 
-        boolean exceptionLancee = TestUtils.LanceException(() -> de.obtenirValeur(), IllegalStateException.class);
-
-        Assert.assertTrue("L'exception n'a pas été lancée", exceptionLancee);
+        CustomAsserts.LanceException(() -> de.obtenirValeur(), IllegalStateException.class);
     }
 
     @Test
