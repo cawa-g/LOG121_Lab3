@@ -6,6 +6,10 @@ import org.junit.Test;
 
 public class DeTest {
 
+    /**
+     * Commentaire useless pour réussir à push..
+     */
+
     @Test
     public void constructeur_nombreDeFacesNegatives_IllegalArgumentException(){
 
