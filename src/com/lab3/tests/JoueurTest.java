@@ -87,8 +87,8 @@ public class JoueurTest {
         MockDe mockDe2 = new MockDe(6);
 
         //Le dé va toujours retourné la valeur 3 maintenant, comme ça on le contrôle bien.
-        mockDe.setObtenirValeurResult(() -> 3);
-        mockDe2.setObtenirValeurResult(() -> 5);
+        mockDe.setObtenirValeurResult(new Integer[]{3});
+        mockDe2.setObtenirValeurResult(new Integer[]{5});
         Des des = new Des();
         des.ajouter(mockDe);
         des.ajouter(mockDe2);
@@ -105,16 +105,24 @@ public class JoueurTest {
 
     @Test
     public void incrementerScore_ValeurInferieureAZero_IllegalArgumentException() {
-
-    }
-
-    @Test
-    public void incrementerScore_ValeurEgaleAZero_IllegalArgumentException() {
-
+        Joueur joueur1 = new Joueur(collectionDeDes);
+        CustomAsserts.LanceException(() -> joueur1.incrementerScore(-1), IllegalArgumentException.class);
     }
 
     @Test
     public void incrementerScore_ValeurAuDessusDeZero_ScoreIncremente() {
+        Joueur joueur1 = new Joueur(collectionDeDes);
+        joueur1.incrementerScore(2);
 
+        Assert.assertTrue(joueur1.obtenirScore() == 2);
+    }
+
+    @Test
+    public void incrementerScore_ScoreAuDessusDeZero_ScorePeutEtreIncrementePlusieursFois() {
+        Joueur joueur1 = new Joueur(collectionDeDes);
+        joueur1.incrementerScore(2);
+        joueur1.incrementerScore(2);
+
+        Assert.assertTrue(joueur1.obtenirScore() == 2 + 2);
     }
 }

@@ -1,12 +1,11 @@
 import com.lab3.diceframework.De;
 
 import java.util.concurrent.Callable;
-import java.util.function.Consumer;
 
 /**
  * Created by francistoupin on 15-03-16.
  */
-class MockDe extends De implements Mock {
+class MockDe extends De {
     /**
      * Initialise un dé à jouer avec un certain nombre de faces
      *
@@ -16,29 +15,21 @@ class MockDe extends De implements Mock {
         super(nombreDeFaces);
     }
 
-    private Callable<Integer> callable;
-    private Exception exceptionLancee;
+    private Integer[] valeursHardcodee;
+    private int indexLancement = -1;
 
-    public void setObtenirValeurResult(Callable<Integer> callable){
-        this.callable = callable;
-    }
-
-    @Override
-    public Integer obtenirValeur(){
-        try {
-            return callable.call();
-        } catch (Exception e) {
-            throw new MockThrownException(e);
-        }
+    public void setObtenirValeurResult(Integer[] valeursHardcodee){
+        this.valeursHardcodee = valeursHardcodee;
     }
 
     @Override
     public void rouler(){
-        return;
+        indexLancement++;
     }
 
     @Override
-    public Exception obtenirException() {
-        return exceptionLancee;
+    public Integer obtenirValeur(){
+        Integer valeur = valeursHardcodee[indexLancement];
+        return valeur;
     }
 }

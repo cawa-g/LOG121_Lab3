@@ -26,12 +26,12 @@ public class FabriqueBunco extends FabriqueDeJeu {
 
     @Override
     protected Joueurs creerJoueurs(int nombreDeJoueurs) {
-        Joueurs j = new Joueurs();
+        Joueurs joueurs = new Joueurs();
 
         for (int index = 0; index < nombreDeJoueurs; index++) {
-            Des d = creerDes();
-            j.ajouter(new Joueur(d));
+            Des des = creerDes();
+            joueurs.ajouter(new Joueur(des));
         }
-        return null;
+        return joueurs;
     }
 }

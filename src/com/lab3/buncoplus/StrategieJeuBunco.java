@@ -5,53 +5,46 @@ import com.lab3.diceframework.*;
 public class StrategieJeuBunco implements StrategieJeu {
 
     @Override
-    public void calculerScoreTour(Joueur joueur, int tour) {
+    public void calculerScoreTour(Jeu jeu) {
+        if(jeu == null){
+            throw new IllegalArgumentException("Le jeu est null");
+        }
         int score = 0;
-        int occurenceDuTour = 0;
+        int occurenceDuTour;
 
-        boolean estBunco = false;
+        boolean doitPasserMain = false;
 
-        do {
-            Iterable<De>des = joueur.roulerDes();
+        for(Joueur joueur : jeu.obtenirJoueurs()) {
 
-            //todo : Arranger!
-            occurenceDuTour = obtenirOccurencesDuTourDansDes(des,tour);
-            De monDe = des.iterator().next();
+            do {
+                Iterable<De> des = joueur.roulerDes();
 
-            if (occurenceDuTour==3){
-                score+=21;
-                estBunco=true;
-            }else if(occurenceDuTour<3){
-                score+=occurenceDuTour;
-            }else if (desTousEgaux(des)){
-                score+=5;
-            }else{
-                estBunco=true;
-            }
+                occurenceDuTour = obtenirOccurencesDuTourDansDes(des, jeu.obtenirTour());
 
+                if (occurenceDuTour == 3) {
+                    score += 21;
+                    doitPasserMain = true;
+                } else if (desTousEgaux(des)) {
+                    score += 5;
+                } else if (occurenceDuTour < 3 && occurenceDuTour > 0) {
+                    score += occurenceDuTour;
+                } else {
+                    doitPasserMain = true;
+                }
+            } while (!doitPasserMain);
 
-//            De de1 = des.iterator().next();
-//
-//            //todo : revoir le calcul avec les règles.
-//            if(occurenceDuTour != 3){
-//                score += occurenceDuTour;
-//            } else if(de1.obtenirValeur() == tour) {
-//                score += 21;
-//                estBunco = true;
-//            } else{
-//                score += 5;
-//            }
+            joueur.incrementerScore(score);
+        }
 
-        } while(occurenceDuTour != 0 && !estBunco);
-
-        //return score;
     }
 
     @Override
     public Joueur calculerLeVainqueur(Jeu jeu) {
+        if(jeu == null){
+            throw new IllegalArgumentException("Le jeu est null");
+        }
 
-        //todo : implémenter
-        Joueurs joueurs = jeu.getJoueurs();
+        Iterable<Joueur> joueurs = jeu.obtenirJoueurs();
 
         Joueur meilleurJoueur = joueurs.iterator().next();
 
@@ -74,15 +67,16 @@ public class StrategieJeuBunco implements StrategieJeu {
 
         return occurenceDuTour;
     }
+
     private boolean desTousEgaux(Iterable<De> des){
-        boolean egaux = true;
-        De tempo = des.iterator().next();
+
+        De deDeComparaison = des.iterator().next();
         for (De de:des){
-            if (de.obtenirValeur()!=tempo.obtenirValeur()){
-                egaux=false;
+            if (!de.obtenirValeur().equals(deDeComparaison.obtenirValeur())){
+                return false;
             }
         }
 
-        return egaux;
+        return true;
     }
 }

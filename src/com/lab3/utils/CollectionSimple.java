@@ -34,29 +34,6 @@ public class CollectionSimple<T> implements Iterable<T>{
         }
     }
 
-    /**
-     * Retire la première instance de la valeur de la collection
-     * @param valeur Valeur à retirer
-     */
-    public void retirer(T valeur){
-
-        boolean valeurTrouvee = false;
-        for(int indexARetirer = 0; indexARetirer < taille(); indexARetirer++){
-            if(!valeurTrouvee){
-                //Vérifier si on a trouver la première instance de la valeur à retirer
-                valeurTrouvee = elements[indexARetirer].equals(valeur);
-            } else {
-                //On l'a trouvé, maintenant on décale les valeurs pour retirer la valeur recherchée.
-                elements[indexARetirer] = elements[indexARetirer + 1];
-            }
-        }
-
-        elements[taille()] = null;
-        indexDeFin--;
-
-        //todo : est-ce qu'on devrait diminuer l'array de taille si on arrive à un certain point?
-    }
-
     public int taille(){
         return indexDeFin;
     }

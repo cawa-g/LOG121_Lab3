@@ -13,6 +13,10 @@ public class Joueur implements Comparable<Joueur> {
      * @param des Les dés du joueur
      */
     public Joueur(Des des){
+        if(des == null){
+            throw new IllegalArgumentException("Les dés sont null");
+        }
+
         this.des = des;
     }
 
@@ -25,6 +29,10 @@ public class Joueur implements Comparable<Joueur> {
      */
     @Override
     public int compareTo(Joueur o) {
+        if(o == null){
+            throw new IllegalArgumentException("Le joueur o est null");
+        }
+
         return ((Integer)this.score).compareTo(o.score);
     }
 
@@ -41,8 +49,6 @@ public class Joueur implements Comparable<Joueur> {
      * @return Les dés avec leurs valeurs actuelles
      */
     public Iterable<De> roulerDes(){
-        //todo : C'est triste retourner Iterator parce que les dés ne sont pas clônés, et que Iterator implémente "retirer". Ça scrap l'encapsulation.
-
         des.forEach(De::rouler);
         return des;
     }
@@ -52,14 +58,10 @@ public class Joueur implements Comparable<Joueur> {
      * @param points Points à ajouter au score du joueur
      */
     public void incrementerScore(int points){
-        this.score += points;
-    }
+        if(points < 0){
+            throw new IllegalArgumentException("Les points ne peuvent pas être inférieur à 1");
+        }
 
-    /**
-     * Ramène le score d'un joueur à 0.
-     */
-    public void reinitialiserScore(){
-        //todo : Je mettrais ça dans un framework, mais on s'en sert pas ici.. or will we?? Da dammm
-        score = 0;
+        this.score += points;
     }
 }

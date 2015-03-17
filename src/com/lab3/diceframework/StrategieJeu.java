@@ -7,10 +7,8 @@ public interface StrategieJeu {
 
     /**
      * Calcul un score en points en fonction de dés et du tour actuel
-     * @param jeu Le joueur du tour
-     * @return Le score en points.
+     * @param jeu Le jeu pour lequel il faut calculer le score d'un tour pour tout les joueurs
      */
-    void calculerScoreTour(Joueur joueur, int tour);
-
+    void calculerScoreTour(Jeu jeu);
     Joueur calculerLeVainqueur(Jeu jeu);
 }

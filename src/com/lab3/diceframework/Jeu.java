@@ -1,5 +1,7 @@
 package com.lab3.diceframework;
 
+import sun.plugin.dom.exception.InvalidStateException;
+
 public class Jeu {
     private final Joueurs joueurs;
     private final int nombreDeTours;
@@ -12,31 +14,28 @@ public class Jeu {
         this.nombreDeTours = nombreDeTours;
         this.strategieJeu = strategieJeu;
 
-        tourActuel = 0;
+        tourActuel = 1;
     }
 
-    /**
-     * Faire un tour dans le jeu. Chaque joueur va brasser les dés et additionner le résultat à son score total.
-     */
-    public void jouerUnTour(){
+    public Iterable<Joueur> obtenirJoueurs(){
+        return joueurs;
+    }
+
+    public int obtenirTour(){
+        return tourActuel;
+    }
+
+    public void calculerScoreTour() {
         if(estTermine()){
-            throw new IllegalStateException("La partie est terminée");
+            throw new InvalidStateException("La partie est terminée");
         }
 
-        for(Joueur joueur : joueurs){
-            //todo : wut. voir plus bas?
-            strategieJeu.calculerScoreTour(joueur,tourActuel);
-        }
+        strategieJeu.calculerScoreTour(this);
         tourActuel++;
     }
 
-    // Wtf O.o
-   /*public void calculerScoreTour() {
-        strategieJeu.calculerScoreTour(this);
-    }*/
-
-    public void calculerLeVainqueur(){
-        strategieJeu.calculerLeVainqueur(this);
+    public Joueur calculerLeVainqueur(){
+        return strategieJeu.calculerLeVainqueur(this);
     }
 
     /**
@@ -45,27 +44,5 @@ public class Jeu {
      */
     public boolean estTermine(){
         return tourActuel > nombreDeTours;
-    }
-
-    /**
-     *
-     * @return Le joueur ayant le plus haut score à la ronde actuelle.
-     */
-    public Joueur obtenirMeilleurJoueur(){
-        Joueur meilleurJoueur = null;
-
-        for(Joueur joueur : joueurs) {
-            if (meilleurJoueur == null || joueur.obtenirScore() > meilleurJoueur.obtenirScore()){
-                meilleurJoueur = joueur;
-            }
-        }
-
-        return meilleurJoueur;
-    }
-    public int getTourActuel(){
-        return tourActuel;
-    }
-    public Joueurs getJoueurs(){
-      return  joueurs;
     }
 }
