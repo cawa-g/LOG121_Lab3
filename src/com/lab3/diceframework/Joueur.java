@@ -1,11 +1,12 @@
 /******************************************************
  Cours:  LOG121
  Projet: Laboratoire #3
- Nom du fichier: com.lab3.diceframework
+ Nom du fichier: com.lab3.diceframework.Joueur
  Date créé: 2015-03-05
  *******************************************************
  Historique des modifications
- 2015-03-05 :
+ 2015-03-05 : Francis
+ 2015-03-08 : Olivier
  *******************************************************/
 
 package com.lab3.diceframework;

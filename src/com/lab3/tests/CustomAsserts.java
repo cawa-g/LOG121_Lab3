@@ -1,3 +1,13 @@
+/******************************************************
+ Cours:  LOG121
+ Projet: Laboratoire #3
+ Nom du fichier: com.lab3.buncoplus.CustomAsserts
+ Date créé: 2015-03-16
+ *******************************************************
+ Historique des modifications
+ 2015-03-16 : Francis
+ *******************************************************/
+
 import org.junit.Assert;
 
 /**

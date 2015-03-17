@@ -1,11 +1,11 @@
 /******************************************************
  Cours:  LOG121
  Projet: Laboratoire #3
- Nom du fichier: com.lab3.diceframework
+ Nom du fichier: com.lab3.diceframework.De
  Date créé: 2015-03-05
  *******************************************************
  Historique des modifications
- 2015-03-05 :
+ 2015-03-05 : Francis
  *******************************************************/
 
 

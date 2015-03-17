@@ -1,3 +1,14 @@
+/******************************************************
+ Cours:  LOG121
+ Projet: Laboratoire #3
+ Nom du fichier: com.lab3.buncoplus.FabriqueBunco
+ Date créé: 2015-03-05
+ *******************************************************
+ Historique des modifications
+ 2015-03-07 : Francis
+ 2015-03-12 : Alexandre
+ *******************************************************/
+
 package com.lab3.buncoplus;
 
 import com.lab3.diceframework.*;

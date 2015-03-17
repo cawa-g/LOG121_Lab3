@@ -1,3 +1,14 @@
+/******************************************************
+ Cours:  LOG121
+ Projet: Laboratoire #3
+ Nom du fichier: com.lab3.utils.CollectionSimple
+ Date créé: 2015-03-05
+ *******************************************************
+ Historique des modifications
+ 2015-03-05 : Francis
+ 2015-03-07 : Olivier
+ *******************************************************/
+
 package com.lab3.utils;
 
 import java.util.Iterator;
