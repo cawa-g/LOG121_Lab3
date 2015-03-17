@@ -2,16 +2,23 @@ package com.lab3.buncoplus;
 
 import com.lab3.diceframework.*;
 
+/**
+ * Implémente la stratégie de jeu du BuncoPlus
+ */
 public class StrategieJeuBunco implements StrategieJeu {
 
+    /**
+     * Calculer le score pour chaque joueur pour un tour
+     * @param jeu L'instance de jeu pour laquel on calcule le score
+     */
     @Override
     public void calculerScoreTour(Jeu jeu) {
         if(jeu == null){
             throw new IllegalArgumentException("Le jeu est null");
         }
+
         int score = 0;
         int occurenceDuTour;
-
         boolean doitPasserMain = false;
 
         for(Joueur joueur : jeu.obtenirJoueurs()) {
@@ -38,6 +45,11 @@ public class StrategieJeuBunco implements StrategieJeu {
 
     }
 
+    /**
+     * Trouve le vainqueur de la partie
+     * @param jeu Le jeu pour lequel on doit voir le vainqueur
+     * @return Le joueur qui a gagné la partie
+     */
     @Override
     public Joueur calculerLeVainqueur(Jeu jeu) {
         if(jeu == null){
@@ -57,6 +69,12 @@ public class StrategieJeuBunco implements StrategieJeu {
         return meilleurJoueur;
     }
 
+    /**
+     * Obtient le nombre de fois que le numéro du tour correspond à une des faces des dés roulés.
+     * @param des Les dés roulés
+     * @param tour Le numéro du tour pour le calcul
+     * @return Le nombre d'occurences du tour
+     */
     private int obtenirOccurencesDuTourDansDes(Iterable<De> des, int tour){
         int occurenceDuTour = 0;
         for (De de : des){
@@ -68,6 +86,11 @@ public class StrategieJeuBunco implements StrategieJeu {
         return occurenceDuTour;
     }
 
+    /**
+     * Détermine si tout les dés sont à la même face
+     * @param des Dés à vérifier
+     * @return true si tout les dés ont la même valeur
+     */
     private boolean desTousEgaux(Iterable<De> des){
 
         De deDeComparaison = des.iterator().next();

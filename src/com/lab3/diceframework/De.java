@@ -59,6 +59,10 @@ public class De implements Comparable<De>{
         return valeurActuelleDuDe;
     }
 
+    /**
+     *
+     * @return le nombre du faces d'un dé
+     */
     public Integer obtenirNombreDeFaces(){
         return nombreDeFaces;
     }

@@ -7,7 +7,6 @@ public abstract class FabriqueDeJeu {
 
     public Jeu creer(int nombreDeTours, int nombreDeJoueurs, StrategieJeu strategieJeu){
         Joueurs j = creerJoueurs(nombreDeJoueurs);
-        creerDes();
         return new Jeu(j, nombreDeTours, strategieJeu);
     }
 
