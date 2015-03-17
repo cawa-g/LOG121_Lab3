@@ -36,7 +36,6 @@ public class CollectionSimple<T> implements Iterable<T>{
         elements[indexDeFin] = valeur;
         indexDeFin++;
 
-        // todo : overkill?
         // Si on arrive à la fin de l'array, il faut en augmenter la taille pour continuer de travailler.
         if(indexDeFin == elements.length - 1){
             T[] nouveauTableau = (T[])new Object[elements.length + tailleInitiale];
