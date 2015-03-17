@@ -117,7 +117,7 @@ public class JeuTest {
         //Fais avancer au tour suivant
         jeu.calculerScoreTour();
 
-        CustomAsserts.LanceException(jeu::calculerScoreTour, IllegalArgumentException.class);
+        CustomAsserts.LanceException(jeu::calculerScoreTour, IllegalStateException.class);
     }
 
     @Test
