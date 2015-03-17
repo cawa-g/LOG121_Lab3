@@ -1,5 +1,7 @@
 package com.lab3.diceframework;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.Random;
 
 /**

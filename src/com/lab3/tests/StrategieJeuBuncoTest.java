@@ -3,12 +3,9 @@ import com.lab3.diceframework.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * Created by francistoupin on 15-03-16.
- */
 public class StrategieJeuBuncoTest {
 
-    private StrategieJeuBunco strategieJeuBunco = new StrategieJeuBunco();
+    private final StrategieJeuBunco strategieJeuBunco = new StrategieJeuBunco();
 
     @Test
     public void calculerScoreTour_JeuNull_InvalidArgumentException(){

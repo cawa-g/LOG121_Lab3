@@ -58,7 +58,7 @@ public class DeTest {
             //Pas la meilleure option, mais le hasard va finir par faire que ça marche.
             de1.rouler();
             de2.rouler();
-        }while(de1.obtenirValeur() != de2.obtenirValeur());
+        }while(!de1.obtenirValeur().equals(de2.obtenirValeur()));
 
         int valeurComparee = de1.compareTo(de2);
 
@@ -84,16 +84,15 @@ public class DeTest {
     @Test
     public void compareTo_De2Null_IllegalArgumentException(){
         De de = new De(2);
-        De de2 = null;
 
-        CustomAsserts.LanceException(() -> de.compareTo(de2), IllegalArgumentException.class);
+        CustomAsserts.LanceException(() -> de.compareTo(null), IllegalArgumentException.class);
     }
 
     @Test
     public void obtenirValeur_DeJamaisLancee_IllegalStateException() throws Exception {
         De de = new De(4);
 
-        CustomAsserts.LanceException(() -> de.obtenirValeur(), IllegalStateException.class);
+        CustomAsserts.LanceException(de::obtenirValeur, IllegalStateException.class);
     }
 
     @Test

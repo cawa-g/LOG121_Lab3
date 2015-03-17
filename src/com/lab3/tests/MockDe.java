@@ -1,10 +1,5 @@
 import com.lab3.diceframework.De;
 
-import java.util.concurrent.Callable;
-
-/**
- * Created by francistoupin on 15-03-16.
- */
 class MockDe extends De {
     /**
      * Initialise un dé à jouer avec un certain nombre de faces
@@ -29,7 +24,6 @@ class MockDe extends De {
 
     @Override
     public Integer obtenirValeur(){
-        Integer valeur = valeursHardcodee[indexLancement];
-        return valeur;
+        return valeursHardcodee[indexLancement];
     }
 }

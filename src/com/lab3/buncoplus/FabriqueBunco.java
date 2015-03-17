@@ -36,7 +36,7 @@ public class FabriqueBunco extends FabriqueDeJeu {
     /**
      * Crée les joueurs du jeu
      * @param nombreDeJoueurs Nombre de joueurs à créer
-     * @return
+     * @return Les joueurs créés
      */
     @Override
     protected Joueurs creerJoueurs(int nombreDeJoueurs) {

@@ -44,14 +44,14 @@ public class CollectionSimple<T> implements Iterable<T>{
      */
     @Override
     public Iterator<T> iterator() {
-        return new IterateurCollectionSimple<T>();
+        return new IterateurCollectionSimple<>();
     }
 
     /**
      * Permet l'itération dans une SimpleCollection
-     * @param <T> Typ d'élément de la liste
+     * @param <TK> Type d'élément de la liste
      */
-    private class IterateurCollectionSimple<T> implements Iterator<T>{
+    private class IterateurCollectionSimple<TK> implements Iterator<TK>{
 
         private int indexCourant = 0;
 
@@ -69,8 +69,8 @@ public class CollectionSimple<T> implements Iterable<T>{
          * @return Prochaine valeur de l'itérateur
          */
         @Override
-        public T next() {
-            T element = (T)elements[indexCourant];
+        public TK next() {
+            TK element = (TK)elements[indexCourant];
             indexCourant++;
 
             return element;

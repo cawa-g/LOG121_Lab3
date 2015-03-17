@@ -7,12 +7,9 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-/**
- * Created by francistoupin on 15-03-16.
- */
 public class JoueurTest {
 
-    private static Des collectionDeDes = new Des();
+    private static final Des collectionDeDes = new Des();
 
     @Test
     public void constructeur_DesNull_IllegalArgumentException() {
@@ -21,7 +18,7 @@ public class JoueurTest {
 
     @Test
     public void constructeur_DesValides_JoueurCree() {
-        Joueur joueur = new Joueur(this.collectionDeDes);
+        Joueur joueur = new Joueur(collectionDeDes);
 
         Assert.assertNotNull(joueur.roulerDes());
     }
@@ -29,7 +26,7 @@ public class JoueurTest {
     @Test
     public void compareTo_JoueurNull_IllegalArgumentException() {
 
-        CustomAsserts.LanceException(() -> new Joueur(this.collectionDeDes).compareTo(null), IllegalArgumentException.class);
+        CustomAsserts.LanceException(() -> new Joueur(collectionDeDes).compareTo(null), IllegalArgumentException.class);
     }
 
     @Test

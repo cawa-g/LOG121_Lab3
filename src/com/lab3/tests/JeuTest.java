@@ -4,15 +4,11 @@ import org.junit.Test;
 
 import java.util.Iterator;
 
-/**
- * Created by francistoupin on 15-03-16.
- */
 public class JeuTest {
 
-    private StrategieJeu strategieJeuMock = new StrategieJeu() {
+    private final StrategieJeu strategieJeuMock = new StrategieJeu() {
         @Override
         public void calculerScoreTour(Jeu jeu) {
-            return;
         }
 
         @Override
@@ -43,8 +39,6 @@ public class JeuTest {
 
     @Test
     public void construitViaFabrique_JeuBienInitialise(){
-        int nombreDeTour = 1;
-        int nombreDeJoueurs = 1;
 
         Jeu jeu = fabriqueMock.creer(1, 1, strategieJeuMock);
 
@@ -113,7 +107,7 @@ public class JeuTest {
         //Fais avancer au tour suivant
         jeu.calculerScoreTour();
 
-        CustomAsserts.LanceException(() -> jeu.calculerScoreTour(), IllegalArgumentException.class);
+        CustomAsserts.LanceException(jeu::calculerScoreTour, IllegalArgumentException.class);
     }
 
     @Test
@@ -158,6 +152,9 @@ public class JeuTest {
         Assert.assertFalse(jeu.estTermine());
     }
 
+    /**
+     * Mock de la stratégie pour vérifier que ça a été appeler dans le jeu
+     */
     class StrategieJeuMock implements StrategieJeu {
 
         public boolean calculerScoreTourEstAppele = false;
@@ -166,7 +163,6 @@ public class JeuTest {
         @Override
         public void calculerScoreTour(Jeu jeu) {
             calculerScoreTourEstAppele = true;
-            return;
         }
 
         @Override

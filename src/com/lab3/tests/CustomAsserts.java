@@ -3,7 +3,7 @@ import org.junit.Assert;
 /**
  * Assertions personnalisée
  */
-public final class CustomAsserts {
+final class CustomAsserts {
 
     /**
      * Vérifie qu'une méthode lance une exception
