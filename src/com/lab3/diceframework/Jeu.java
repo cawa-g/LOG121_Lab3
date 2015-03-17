@@ -25,14 +25,15 @@ public class Jeu {
 
         for(Joueur joueur : joueurs){
             //todo : wut. voir plus bas?
-            //strategieJeu.calculerScoreTour(joueur);
+            strategieJeu.calculerScoreTour(joueur,tourActuel);
         }
         tourActuel++;
     }
 
-    public void calculerScoreTour() {
+    // Wtf O.o
+   /*public void calculerScoreTour() {
         strategieJeu.calculerScoreTour(this);
-    }
+    }*/
 
     public void calculerLeVainqueur(){
         strategieJeu.calculerLeVainqueur(this);
@@ -60,5 +61,11 @@ public class Jeu {
         }
 
         return meilleurJoueur;
+    }
+    public int getTourActuel(){
+        return tourActuel;
+    }
+    public Joueurs getJoueurs(){
+      return  joueurs;
     }
 }
